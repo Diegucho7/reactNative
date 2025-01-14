@@ -1,6 +1,8 @@
 // Import your global CSS file
 import { useEffect } from "react";
 import { useFonts } from 'expo-font';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Drawer } from 'expo-router/drawer';
 
 import { Slot, SplashScreen, Stack } from 'expo-router';
 import "./global.css";
@@ -23,8 +25,12 @@ const RootLayout = () => {
 
     if (!fontsLoaded && !error) return null;
 
-    // return (<Slot />)
-    return <Slot />;
+    return (
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <Slot />
+        </GestureHandlerRootView>
+    )
+    // return <Slot />;
 }
 
 export default RootLayout
